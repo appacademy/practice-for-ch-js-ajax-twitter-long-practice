@@ -1,0 +1,20 @@
+<div class="infinite-tweets">
+  <% if tweets.empty? %>
+    <p>No tweets... yet!</p>
+  <% end %>
+
+  <ul class="tweets">
+    <% tweets.each do |tweet| %>
+      <li><%= render "tweets/tweet", tweet: tweet %></li>
+    <% end %>
+  </ul>
+
+  <form>
+    <input 
+      type="hidden" 
+      name="limit" 
+      value=<%= (params[:limit] || 10).to_i + 10 %>
+    >
+    <button class="fetch-tweets-btn">Fetch more tweets!</button>
+  </form>
+</div>

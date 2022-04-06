@@ -1,0 +1,26 @@
+<h2 class="page-header">Log in!</h2>
+
+<%= render 'shared/errors' %>
+
+<form class="simple-form" action="/session" method="POST">
+  <%= render 'shared/auth_token' %>
+
+  <div class="field">
+    <label for="user_username">Username</label>
+    <input type="text" name="user[username]" id="user_username" required>
+  </div>
+
+  <div class="field">
+    <label for="user_password">Password</label>
+    <input type="password" name="user[password]" id="user_password" required>
+  </div>
+
+  <button type="submit">Log in!</button>
+  
+  <% demo_user = User.first %>
+  <button name="demo" value=<%= demo_user.id %> formnovalidate>
+    Log in as <%= demo_user.username.titlecase %>
+  </button>
+
+  <a href="<%= new_user_url %>">Don't have an account? Sign up!</a>
+</form>

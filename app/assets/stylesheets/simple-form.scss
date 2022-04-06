@@ -1,0 +1,43 @@
+.simple-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+
+  div.field, 
+  button {
+    margin: 15px 0;
+  }
+
+  div.field {
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      padding: 10px;
+      margin-right: 20px;
+    }
+  }
+
+  input[type=text], 
+  input[type=password], 
+  textarea,
+  select,
+  button {
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 15px;
+  }
+
+  textarea, select {
+    border: none;
+  }
+
+  textarea {
+    padding: 20px 25px;
+  }
+
+  select {
+    text-align: center;
+  }
+}

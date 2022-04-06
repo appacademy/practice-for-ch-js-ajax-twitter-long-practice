@@ -1,0 +1,22 @@
+<div class="tweet">
+  <h3 class="author">
+    <a href="<%= user_url(tweet.author) %>">
+      @<%= tweet.author.username %>
+    </a>
+  </h3>
+
+  <span class="created-at">
+    <%= tweet.created_at.getlocal.to_date.to_fs(:long) %>
+  </span>
+
+  <p><%= tweet.body %></p>
+
+  <% if tweet.mentioned_user_id.present? %>    
+    <div class="mentioned-user">
+      Mentions:
+      <a href="<%= user_url(tweet.mentioned_user) %>">
+        @<%= tweet.mentioned_user.username %>
+      </a>
+    </div>
+  <% end %>  
+</div>

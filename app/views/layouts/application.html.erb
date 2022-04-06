@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ajax Twitter</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredoka+One|Roboto");
+    </style>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", defer: true %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="main-nav">
+        <a href="/">
+          <h1 class="logo">
+            <span class="tiny">AJAX</span>Twitter
+          </h1>
+        </a>
+        <ul class="links">
+          <% if current_user %>
+            <li><a href="<%= feed_url %>">Feed</a></li>
+            <li><a href="<%= search_users_url %>">User Search</a></li>
+            <li><a href="<%= user_url(current_user) %>">Profile</a></li>
+            <li>
+              <form class="button-form" action="/session" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <%= render "shared/auth_token" %>
+                <button type="submit">Log out!</button>
+              </form>
+            </li>
+          <% else %>
+            <li><a href="<%= new_session_url %>">Log in</a></li>
+            <li><a href="<%= new_user_url %>">Sign up</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

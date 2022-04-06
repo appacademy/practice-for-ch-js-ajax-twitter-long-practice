@@ -1,0 +1,47 @@
+<h2 class="page-header"><%= @user.username %></h2>
+
+<div class="user-detail">
+  <% unless current_user == @user %>
+    <%= render "users/follow_toggle", user: @user %>
+  <% end %>
+
+  <article class="left-half">
+    <% if @user == current_user%>  
+      <%= render "tweets/form" %>
+    <% end %>
+
+    <%= render "tweets/infinite_tweets", 
+      tweets: @user.page_of_tweets(type: :profile, limit: params[:limit])
+    %>
+  </article>
+
+  <aside class="right-half">
+    <ul class="users followers">Followers
+      <% if @user.followers.count == 0 %>
+        <p> No followers... yet!</p>
+      <% else %>
+        <% @user.followers.each do |follower| %>
+          <li>
+            <a href="<%= user_url(follower) %>">
+              @<%= follower.username %>
+            </a>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <ul class="users">Following
+      <% if @user.following.count == 0 %>
+        <p> You're not following anyone... yet!</p>
+      <% else %>
+        <% @user.following.each do |user| %>
+          <li>
+            <a href="<%= user_url(user) %>">
+              @<%= user.username %>
+            </a>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </aside>
+</div>

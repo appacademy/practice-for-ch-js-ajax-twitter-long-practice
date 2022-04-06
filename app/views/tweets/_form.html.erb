@@ -1,0 +1,36 @@
+<form 
+  class="simple-form tweet-compose" 
+  action="<%= tweets_url %>"
+  method="POST"
+>
+  <%= render 'shared/errors' %>
+  <%= render 'shared/auth_token' %>
+
+  <div class="tweet-body field">
+    <textarea 
+      id="tweet-textarea" 
+      name="tweet[body]" 
+      placeholder="What's on your mind?"
+      required
+    ></textarea>
+    <span class="chars-remaining"></span>
+  </div>
+
+  <div class="mentioned-user">
+    <label for="tweet[mentioned_user_id]">Mention User: </label>
+    <select name="tweet[mentioned_user_id]">
+      <option value="">
+        ---None---
+      </option>
+      <% User.where.not(id: current_user.id).each_with_index do |user, idx| %>
+        <option value="<%= user.id %>">
+          <%= user.username %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="tweet-actions">
+    <button type="submit">Post Tweet!</button>
+  </div>
+</form>

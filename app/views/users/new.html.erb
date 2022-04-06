@@ -1,0 +1,32 @@
+<h2 class="page-header">Sign up!</h2>
+
+<%= render 'shared/errors' %>
+
+<form class="simple-form" action="/users" method="POST">
+  <%= render 'shared/auth_token' %>
+
+  <div class="field">
+    <label for="user_username">Username</label>
+    <input
+      type="text"
+      name="user[username]"
+      id="user_username"
+      value="<%= @user.username %>"
+      required
+    >
+  </div>
+
+  <div class="field">
+    <label for="user_password">Password</label>
+    <input 
+      type="password" 
+      name="user[password]" 
+      id="user_password"
+      required
+    >
+  </div>
+
+  <button type="submit">Create User!</button>
+
+  <a href="<%= new_session_url %>">Already have an account? Log in!</a>
+</form>

@@ -1,0 +1,26 @@
+<h2 class="page-header">Search!</h2>
+
+<div class="users-search">
+  <form class="simple-form search-form" action="<%= search_users_url %>">
+    <input 
+      type="text" 
+      name="query"
+      autocomplete="off"
+      placeholder="Enter a username"
+      autofocus
+    >
+    <button type="submit" class="search-button">Search!</button>
+    <span class="loading-indicator"></span>
+  </form>
+
+  <ul class="users">
+    <% @users.each do |user| %>
+      <li>
+        <a href="<%= user_url(user) %>">
+          @<%= user.username %>
+        </a>
+        <%= render "users/follow_toggle", user: user %>
+      </li>
+    <% end %>
+  </ul>
+</div>
