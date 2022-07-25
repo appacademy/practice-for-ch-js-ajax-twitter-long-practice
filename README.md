@@ -38,8 +38,8 @@ js: npm run build -- --watch
 css: npm run build:css -- --watch
 ```
 
-Here you can see three processes will run: the Rails server and the `build`
-(webpack) and `build:css` (sass) scripts defined in `package.json`. Hit `^c`
+Here you can see three processes will run: the Rails server, the `build`
+(webpack), and `build:css` (sass) scripts defined in `package.json`. Use `^c`
 (CTRL-c) to end all three processes and exit `foreman`.
 
 ### Debugging
