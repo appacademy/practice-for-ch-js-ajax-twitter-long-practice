@@ -408,7 +408,7 @@ server. If, however, you supply a value of `application/json` in your `fetch`
 request, the server will then know to treat the request differently than a
 browser-generated request. Go ahead and add such a header to `customFetch`.
 
-In Rails, you can create customs responses for different requested formats using
+In Rails, you can create custom responses for different requested formats using
 the [`respond_to`] method, which looks at the `Accept` header under the hood.
 Right now, you only have a response set for requests that will accept an HTML
 response. Add the following to your `create` action:
