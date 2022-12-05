@@ -1,5 +1,9 @@
 # AJAX Twitter (Phase 3)
 
+[Live Demo]
+
+[Live Demo]: https://aa-twitter-ajax.herokuapp.com/
+
 ## Phase 3: `UsersSearch`
 
 Now it's time to bring some AJAX magic to the user search! Right now, to search

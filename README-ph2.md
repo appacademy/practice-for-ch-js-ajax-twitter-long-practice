@@ -1,5 +1,9 @@
 # AJAX Twitter (Phase 2)
 
+[Live Demo]
+
+[Live Demo]: https://aa-twitter-ajax.herokuapp.com/
+
 ## Phase 2: `InfiniteTweets`
 
 Both the feed and user show pages render a list of tweets. When you scroll to

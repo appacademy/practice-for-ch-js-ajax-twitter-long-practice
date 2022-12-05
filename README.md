@@ -6,6 +6,10 @@ replace traditional form submissions with AJAX requests that do not cause a full
 page refresh, sprinkling in some extra JavaScript interactivity while you're at
 it!
 
+[Live Demo]
+
+[Live Demo]: https://aa-twitter-ajax.herokuapp.com/
+
 ## Learning goals
 
 By the end of today's practice, you should be able to:
